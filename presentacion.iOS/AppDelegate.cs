@@ -30,6 +30,13 @@ namespace presentacion.iOS
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
             LoadApplication(new App(new IOSPlatformInitializer()));
+
+            GoogleVisionBarCodeScanner.iOS.Initializer.Init();
+            // Temporary work around for bug on Firebase Library
+            // https://github.com/xamarin/GoogleApisForiOSComponents/issues/368
+            Firebase.Core.App.Configure();
+            _ = Firebase.RemoteConfig.RemoteConfig.SharedInstance;
+
             return base.FinishedLaunching(app, options);
         }
     }

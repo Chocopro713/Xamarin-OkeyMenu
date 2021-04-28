@@ -51,6 +51,23 @@ namespace presentacion.ViewModels
         /// </summary>
         private async void OnScannerMenuCommand()
         {
+            if (this.IsBusy)
+                return;
+
+            this.IsBusy = true;
+
+            bool permission = await GoogleVisionBarCodeScanner.Methods.AskForRequiredPermission();
+            if (!permission)
+            {
+                this.PageDialog.Toast("Debes activar los permisos para poder seguir.");
+                this.IsBusy = false;
+                return;
+            }
+
+            var navigation = await this._navigationService.NavigateAsync(new Uri($"/ScannerPage", UriKind.Relative));
+            if (!navigation.Success)
+                await PageDialog.AlertAsync(navigation.Exception.Message, "Escanear Codigo", "Aceptar");
+            this.IsBusy = false;
         }
         #endregion Commands
 

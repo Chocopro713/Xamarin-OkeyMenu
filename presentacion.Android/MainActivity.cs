@@ -18,6 +18,10 @@ namespace presentacion.Droid
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
+            // BarCode
+            GoogleVisionBarCodeScanner.Droid.RendererInitializer.Init();
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             /*  _______________/------\_______________  */

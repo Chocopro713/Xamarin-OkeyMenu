@@ -19,6 +19,7 @@
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.483" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="BarcodeScanner.XF" Version="5.0.4" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
