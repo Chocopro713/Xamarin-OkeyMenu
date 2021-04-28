@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="presentacion.Views.RememberPassPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:presentacion.Controls"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:local="clr-namespace:presentacion;assembly=presentacion"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="StyleEntry" TargetType="control:StandardEntry">
+                <Setter Property="Padding" Value="50,0,0,0" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Opacity" Value=".5" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="CornerRadius" Value="16" />
+                <Setter Property="PlaceholderColor" Value="Black" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <ffimage:CachedImage
+                Aspect="AspectFill"
+                HorizontalOptions="FillAndExpand"
+                Source="{local:ImageResource presentacion.Resources.Images.restauranteLogin.jpeg}"
+                VerticalOptions="FillAndExpand" />
+
+            <BoxView BackgroundColor="Black" Opacity=".8" />
+
+            <Button
+                Margin="20"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                CornerRadius="24"
+                FontFamily="{StaticResource LineAwesome}"
+                FontSize="20"
+                HeightRequest="45"
+                HorizontalOptions="Start"
+                Text="{x:Static local:LineAwesomeFont.AngleLeft}"
+                TextColor="{StaticResource WhiteDarkColor}"
+                VerticalOptions="Start"
+                WidthRequest="45"
+                Command="{Binding BackCommand}"/>
+
+            <Grid
+                Margin="20,30"
+                RowDefinitions="Auto, Auto, Auto"
+                RowSpacing="10"
+                VerticalOptions="Center">
+                <!--  USUARIO  -->
+                <Grid Grid.Row="0" Margin="0, 15">
+                    <control:StandardEntry
+                        Placeholder="Correo Electrónico"
+                        Style="{StaticResource StyleEntry}"
+                        Text="{Binding UserName}">
+                        <control:StandardEntry.Triggers>
+                            <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                                <Setter Property="Opacity" Value=".8" />
+                                <!--  multiple Setters elements are allowed  -->
+                            </Trigger>
+                        </control:StandardEntry.Triggers>
+                    </control:StandardEntry>
+                    <ImageButton
+                        IsVisible="{Binding IsOfertasVisible}"
+                        Source="{FontImage FontFamily={StaticResource LineAwesome},
+                                           Color={StaticResource PrimaryColor},
+                                           Glyph={x:Static local:LineAwesomeFont.User}}"
+                        Style="{StaticResource StyleIcon}" />
+                </Grid>
+
+                <!--  BOTON DE ENVIAR  -->
+                <Button
+                    Grid.Row="1"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    BorderColor="Transparent"
+                    BorderWidth="1"
+                    Command="{Binding LoginCommand}"
+                    CornerRadius="16"
+                    Text="Enviar"
+                    TextColor="White" />
+            </Grid>
+
+            <!--  VERSION APP  -->
+            <Label
+                Margin="0,20"
+                HorizontalTextAlignment="Center"
+                Text="Versión 1.0"
+                TextColor="{StaticResource PrimaryColor}"
+                VerticalOptions="End" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

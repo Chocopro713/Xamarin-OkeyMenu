@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="presentacion.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+    <ContentPage.Content>
+        <Grid RowDefinitions="3*, 100, *" RowSpacing="0">
+            <xct:MediaElement
+                Grid.RowSpan="2"
+                ShowsPlaybackControls="False"
+                AutoPlay="True"
+                Source="https://sec.ch9.ms/ch9/5d93/a1eab4bf-3288-4faf-81c4-294402a85d93/XamarinShow_mid.mp4"
+                VerticalOptions="FillAndExpand"
+                Volume="0" />
+            <Frame Grid.Row="1" Grid.RowSpan="2">
+                <Frame.Background>
+                    <!--  StartPoint defaults to (0,0)  -->
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.1" Color="Transparent" />
+                        <GradientStop Offset="1.0" Color="Green" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+            </Frame>
+            <StackLayout Grid.Row="2">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="15">
+                    <Button CornerRadius="12" BackgroundColor="LightBlue" Text="Iniciar Sesion" Command="{Binding GoLoginCommand}"/>
+                    <Button CornerRadius="12" BackgroundColor="LightBlue" Text="Escanear Menú" Command="{Binding ScannerMenuCommand}"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

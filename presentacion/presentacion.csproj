@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
+    <PackageReference Include="Prism.Forms" Version="8.0.0.1909" />
+    <PackageReference Include="Prism.Unity.Forms" Version="8.0.0.1909" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.483" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Images\restauranteLogin.jpeg" />
+    <None Remove="Resources\Images\ic_facebook.png" />
+    <None Remove="Resources\Images\ic_google.png" />
+    <None Remove="Resources\Images\ic_instagram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\restauranteLogin.jpeg" />
+    <EmbeddedResource Include="Resources\Images\ic_facebook.png" />
+    <EmbeddedResource Include="Resources\Images\ic_google.png" />
+    <EmbeddedResource Include="Resources\Images\ic_instagram.png" />
+  </ItemGroup>
+</Project>

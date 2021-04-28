@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="presentacion.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:presentacion.Controls"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:local="clr-namespace:presentacion;assembly=presentacion"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="StyleEntry" TargetType="control:StandardEntry">
+                <Setter Property="Padding" Value="50,0,0,0" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Opacity" Value=".5" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="CornerRadius" Value="16" />
+                <Setter Property="PlaceholderColor" Value="Black" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <ffimage:CachedImage
+                Aspect="AspectFill"
+                HorizontalOptions="FillAndExpand"
+                Source="{local:ImageResource presentacion.Resources.Images.restauranteLogin.jpeg}"
+                VerticalOptions="FillAndExpand" />
+
+            <BoxView BackgroundColor="Black" Opacity=".8" />
+
+            <Button
+                CornerRadius="24"
+                Margin="20"
+                FontSize="20"
+                HeightRequest="45"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="45" 
+                FontFamily="{StaticResource LineAwesome}"
+                Text="{x:Static local:LineAwesomeFont.AngleLeft}"
+                TextColor="{StaticResource WhiteDarkColor}"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                Command="{Binding BackCommand}"/>
+            <!--
+            <ffimage:CachedImage
+                Margin="0,100"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                Source="{local:ImageResource presentacion.Resources.Images.prestashop.png}"
+                VerticalOptions="Start"
+                WidthRequest="100" />
+            -->
+            <Grid
+                Margin="20,30"
+                RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
+                RowSpacing="10"
+                VerticalOptions="End">
+                <!--  USUARIO  -->
+                <Grid Grid.Row="0">
+                    <control:StandardEntry
+                        Placeholder="Usuario"
+                        Style="{StaticResource StyleEntry}"
+                        Text="{Binding UserName}">
+                        <control:StandardEntry.Triggers>
+                            <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                                <Setter Property="Opacity" Value=".8" />
+                                <!--  multiple Setters elements are allowed  -->
+                            </Trigger>
+                        </control:StandardEntry.Triggers>
+                    </control:StandardEntry>
+                    <ImageButton
+                        IsVisible="{Binding IsOfertasVisible}"
+                        Source="{FontImage FontFamily={StaticResource LineAwesome},
+                                           Color={StaticResource PrimaryColor},
+                                           Glyph={x:Static local:LineAwesomeFont.User}}"
+                        Style="{StaticResource StyleIcon}" />
+                </Grid>
+
+                <!--  CONTRASEÑA  -->
+                <Grid Grid.Row="1">
+                    <control:StandardEntry
+                        Placeholder="Contraseña"
+                        Style="{StaticResource StyleEntry}"
+                        Text="{Binding UserName}">
+                        <control:StandardEntry.Triggers>
+                            <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                                <Setter Property="Opacity" Value=".8" />
+                                <!--  multiple Setters elements are allowed  -->
+                            </Trigger>
+                        </control:StandardEntry.Triggers>
+                    </control:StandardEntry>
+                    <ImageButton
+                        IsVisible="{Binding IsOfertasVisible}"
+                        Source="{FontImage FontFamily={StaticResource LineAwesome},
+                                           Color={StaticResource PrimaryColor},
+                                           Glyph={x:Static local:LineAwesomeFont.Lock}}"
+                        Style="{StaticResource StyleIcon}" />
+                </Grid>
+
+                <!--  BOTON DE ENVIAR  -->
+                <Button
+                    Grid.Row="2"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    BorderColor="Transparent"
+                    BorderWidth="1"
+                    Command="{Binding LoginCommand}"
+                    CornerRadius="16"
+                    Text="Login"
+                    TextColor="White" />
+
+                <Grid Grid.Row="3" ColumnDefinitions="*, Auto">
+
+                    <!-- Recordar -->
+                    <StackLayout Orientation="Horizontal" Spacing="0">
+                        <CheckBox />
+                        <Label
+                            Text="Recordar"
+                            TextColor="White"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+
+                    <!-- Olvido Contraseña -->
+                    <Label
+                        Grid.Column="1"
+                        Text="Olvido su contraseña"
+                        TextColor="White"
+                        VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding RememberPassCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+                <Grid Grid.Row="4">
+                    <!--
+                    <BoxView HeightRequest="1" BackgroundColor="Red"/>
+                    -->
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="--------------- O ---------------"
+                        TextColor="White" />
+                    <!--
+                    <BoxView HeightRequest="1" BackgroundColor="Red" Grid.Column="2"/>
+                    -->
+                </Grid>
+
+                <Label
+                    Grid.Row="5"
+                    HorizontalOptions="Center"
+                    Text="Iniciar sesión con"
+                    TextColor="White" />
+
+                <StackLayout
+                    Grid.Row="6"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    Spacing="20">
+                    <ImageButton
+                        Command="{Binding FacebookCommand}"
+                        Source="{local:ImageResource presentacion.Resources.Images.ic_facebook.png}"
+                        Style="{StaticResource MediaIcons}" />
+                    <ImageButton
+                        Command="{Binding InstagramCommand}"
+                        Source="{local:ImageResource presentacion.Resources.Images.ic_google.png}"
+                        Style="{StaticResource MediaIcons}" />
+                    <ImageButton
+                        Command="{Binding YoutubeCommand}"
+                        Source="{local:ImageResource presentacion.Resources.Images.ic_instagram.png}"
+                        Style="{StaticResource MediaIcons}" />
+                </StackLayout>
+
+                <!--  VERSION APP  -->
+                <Label
+                    Grid.Row="7"
+                    Margin="0,20"
+                    HorizontalTextAlignment="Center"
+                    Text="Versión 1.0"
+                    TextColor="{StaticResource PrimaryColor}" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
