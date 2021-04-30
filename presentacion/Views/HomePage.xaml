@@ -13,7 +13,8 @@
                 AutoPlay="True"
                 Source="https://sec.ch9.ms/ch9/5d93/a1eab4bf-3288-4faf-81c4-294402a85d93/XamarinShow_mid.mp4"
                 VerticalOptions="FillAndExpand"
-                Volume="0" />
+                Volume="0"
+                IsVisible="{Binding IsVideoVisible}"/>
             <Frame Grid.Row="1" Grid.RowSpan="2">
                 <Frame.Background>
                     <!--  StartPoint defaults to (0,0)  -->
