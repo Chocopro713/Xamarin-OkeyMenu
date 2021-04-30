@@ -3,7 +3,8 @@
     x:Class="presentacion.Views.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    BackgroundColor="White">
     <ContentPage.Content>
         <Grid RowDefinitions="3*, 100, *" RowSpacing="0">
             <xct:MediaElement

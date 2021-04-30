@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using presentacion.Models;
 using Prism.AppModel;
 using Prism.Navigation;
 
@@ -8,6 +10,7 @@ namespace presentacion.ViewModels
     {
         #region Attributes
         private string _nameRestaurant;
+        private ObservableCollection<MenuModel> _menus;
         #endregion Attributes
 
         #region Properties
@@ -15,6 +18,12 @@ namespace presentacion.ViewModels
         {
             get { return _nameRestaurant; }
             set { SetProperty(ref _nameRestaurant, value); }
+        }
+
+        public ObservableCollection<MenuModel> Menus
+        {
+            get { return _menus; }
+            set { SetProperty(ref _menus, value); }
         }
         #endregion Properties
 
@@ -25,6 +34,10 @@ namespace presentacion.ViewModels
         #endregion Constructor
 
         #region Methods
+        public void GetMenu()
+        {
+
+        }
         #endregion Methods
 
         #region Commands

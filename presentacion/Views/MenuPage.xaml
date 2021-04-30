@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
+    x:Class="presentacion.Views.MenuPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="presentacion.Views.MenuPage">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Content>
-        
+        <StackLayout>
+            <Label
+                Margin="10"
+                FontSize="30"
+                Text="{Binding NameRestaurant}"
+                TextColor="{StaticResource PrimaryColor}" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

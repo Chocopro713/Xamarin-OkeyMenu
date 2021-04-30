@@ -29,6 +29,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\Fonts\" />
+    <Folder Include="Models\Menu\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Images\restauranteLogin.jpeg" />

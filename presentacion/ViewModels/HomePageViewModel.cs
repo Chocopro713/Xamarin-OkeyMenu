@@ -9,9 +9,16 @@ namespace presentacion.ViewModels
     {
         #region Attributes
         private INavigationService _navigationService;
+        private bool _isVideoVisible;
         #endregion Attributes
 
         #region Properties
+        public bool IsVideoVisible
+        {
+            get { return _isVideoVisible; }
+            set { SetProperty(ref _isVideoVisible, value); }
+        }
+
         public ICommand GoLoginCommand { get; set; }
         public ICommand ScannerMenuCommand { get; set; }
         #endregion Properties
@@ -72,6 +79,23 @@ namespace presentacion.ViewModels
         #endregion Commands
 
         #region Navegacion
+        /// <summary>
+        /// Se ejecuta cuando sale de la pagina
+        /// </summary>
+        /// <param name="parameters"></param>
+        public override void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            this.IsVideoVisible = false;
+        }
+
+        /// <summary>
+        /// Se ejecuta cada vez que ingrese o se devuelva a la pagina
+        /// </summary>
+        /// <param name="parameters"></param>
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            this.IsVideoVisible = true;
+        }
         #endregion Navegacion
     }
 }
