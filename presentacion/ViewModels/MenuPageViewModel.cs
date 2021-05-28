@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using presentacion.Models;
+using presentacion.Models.Menu;
 using Prism.AppModel;
 using Prism.Navigation;
 
