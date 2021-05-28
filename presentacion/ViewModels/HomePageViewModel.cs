@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Prism.Navigation;
 using Xamarin.Forms;
@@ -30,10 +31,20 @@ namespace presentacion.ViewModels
 
             this.ScannerMenuCommand = new Command(OnScannerMenuCommand);
             this.GoLoginCommand = new Command(OnGoLoginCommand);
+
+            // Events
+            ShowPresentacion();
         }
         #endregion Constructor
 
         #region Methods
+        private async void ShowPresentacion()
+        {
+            await Task.Delay(500);
+            var navegation = await this._navigationService.NavigateAsync("WelcomeBoardingPage", new NavigationParameters(), useModalNavigation: true, animated: true);
+            if (!navegation.Success)
+                PageDialog.Alert("No fue posible ingresar a la ventana de bienvenida.", "Error", "Aceptar");
+        }
         #endregion Methods
 
         #region Commands

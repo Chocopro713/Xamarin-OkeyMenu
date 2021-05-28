@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="presentacion.Views.PresentacionPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:local="clr-namespace:presentacion"
+    xmlns:models="clr-namespace:presentacion.Models"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="btnCarrousel" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="Padding" Value="12,0" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+            </Style>
+            <Style x:Key="btnTransparent" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Padding="20,10" RowDefinitions="*,Auto,Auto">
+            <!--  CAROUSEL  -->
+            <CarouselView
+                x:Name="carousel"
+                HorizontalScrollBarVisibility="Never"
+                IndicatorView="indicatorView"
+                ItemsSource="{Binding Presentations}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate x:DataType="models:PresentacionModel">
+                        <Grid Padding="30,0">
+                            <StackLayout VerticalOptions="Center">
+
+                                <ffimageloadingsvg:SvgCachedImage
+                                    DownsampleToViewSize="true"
+                                    HeightRequest="400"
+                                    Source="{Binding Image}"
+                                    WidthRequest="400" />
+
+                                <Label
+                                    FontFamily="Poppins-Medium"
+                                    FontSize="Title"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding Title}" />
+                                <Label
+                                    FontSize="Medium"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    LineHeight="1.1"
+                                    Text="{Binding Description}"
+                                    TextColor="{StaticResource SecondaryTextColor}" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <!--  CLOSE BUTTON  
+            <ImageButton
+                xct:SafeAreaEffect.SafeArea="True"
+                Command="{Binding CloseModalCommand}"
+                Style="{StaticResource btnImgCloseButton}" />
+            -->
+
+            <!--  INDICADOR  -->
+            <IndicatorView
+                x:Name="indicatorView"
+                HorizontalOptions="Center"
+                IndicatorColor="LightGray"
+                SelectedIndicatorColor="Black"
+                VerticalOptions="End" />
+
+            <!--  CHECKBOX  -->
+            <Grid Grid.Row="1" IsVisible="True">
+                <StackLayout Orientation="Horizontal" Spacing="0">
+                    <CheckBox IsChecked="{Binding NoFuturePresentation}" Color="{StaticResource AccentColor}" />
+                    <Label
+                        Text="No presentar de nuevo."
+                        TranslationX="-10"
+                        VerticalOptions="Center" />
+                </StackLayout>
+                <Button Command="{Binding ChangeCheckCommand}" Style="{StaticResource btnTransparent}" />
+            </Grid>
+
+            <!--  OPCIONES  -->
+            <Grid Grid.Row="2" ColumnDefinitions="*,*">
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,0,0,20" />
+                        <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+                    </OnPlatform>
+                </Grid.Margin>
+
+                <Button
+                    x:Name="PreviousPresentation"
+                    Grid.Column="0"
+                    HorizontalOptions="StartAndExpand"
+                    ImageSource="{FontImage FontFamily={StaticResource LineAwesome},
+                                            Color={StaticResource PrimaryColor},
+                                            Glyph={x:Static local:LineAwesomeFont.AlignLeft},
+                                            Size=15}"
+                    IsVisible="True"
+                    Style="{StaticResource btnCarrousel}"
+                    Text="Anterior">
+                    <Button.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Position, Source={x:Reference carousel}}"
+                            TargetType="Button"
+                            Value="0">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+
+
+                <Button
+                    x:Name="NextPresentation"
+                    Grid.Column="1"
+                    Command="{Binding FinishPresentationCommand}"
+                    CommandParameter="{Binding Position, Source={x:Reference carousel}}"
+                    ContentLayout="Right, 10"
+                    HorizontalOptions="End"
+                    ImageSource="{FontImage FontFamily={StaticResource LineAwesome},
+                                            Color={StaticResource PrimaryColor},
+                                            Glyph={x:Static local:LineAwesomeFont.AngleRight},
+                                            Size=15}"
+                    Style="{StaticResource btnCarrousel}"
+                    Text="Continuar" />
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

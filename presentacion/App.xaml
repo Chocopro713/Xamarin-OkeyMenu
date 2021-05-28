@@ -8,11 +8,14 @@
     xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms">
     <Application.Resources>
         <!--  COLORS  -->
-        <Color x:Key="PrimaryColor">#CE111F</Color>
-        <Color x:Key="PrimaryDarkColor">#E9777A</Color>
+        <Color x:Key="PrimaryColor">#9E9E9E</Color>
+        <Color x:Key="PrimaryDarkColor">#616161</Color>
         <Color x:Key="WhiteDarkColor">#F5F5F5</Color>
-        <Color x:Key="BlueLightColor">#33B6BD</Color>
-        <Color x:Key="GreenLightColor">#3CB24A</Color>
+        <Color x:Key="accent">#FF9800</Color>
+        <Color x:Key="primary_text">#212121</Color>
+        <Color x:Key="secondary_text">#757575</Color>
+        <Color x:Key="icons">#212121</Color>
+        <Color x:Key="divider">#BDBDBD</Color>
 
         <!--  Iconos  -->
         <Style x:Key="MediaIcons" TargetType="ImageButton">

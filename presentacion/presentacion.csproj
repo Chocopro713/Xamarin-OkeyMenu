@@ -20,6 +20,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
     <PackageReference Include="BarcodeScanner.XF" Version="5.0.4" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
