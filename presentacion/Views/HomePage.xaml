@@ -3,18 +3,30 @@
     x:Class="presentacion.Views.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:local="clr-namespace:presentacion;assembly=presentacion"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     BackgroundColor="White">
     <ContentPage.Content>
         <Grid RowDefinitions="3*, 100, *" RowSpacing="0">
-            <xct:MediaElement
+
+            <ffimage:CachedImage
                 Grid.RowSpan="2"
+                Margin="0"
+                Aspect="AspectFill"
+                BackgroundColor="Transparent"
+                HorizontalOptions="FillAndExpand"
+                Source="{local:ImageResource presentacion.Resources.Images.chef.png}"
+                VerticalOptions="FillAndExpand" />
+            <!--
+            <xct:MediaElement
                 ShowsPlaybackControls="False"
                 AutoPlay="True"
                 Source="https://sec.ch9.ms/ch9/5d93/a1eab4bf-3288-4faf-81c4-294402a85d93/XamarinShow_mid.mp4"
                 VerticalOptions="FillAndExpand"
                 Volume="0"
                 IsVisible="{Binding IsVideoVisible}"/>
+            -->
             <Frame Grid.Row="1" Grid.RowSpan="2">
                 <Frame.Background>
                     <!--  StartPoint defaults to (0,0)  -->
@@ -25,9 +37,20 @@
                 </Frame.Background>
             </Frame>
             <StackLayout Grid.Row="2">
-                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="15">
-                    <Button CornerRadius="12" BackgroundColor="LightBlue" Text="Iniciar Sesion" Command="{Binding GoLoginCommand}"/>
-                    <Button CornerRadius="12" BackgroundColor="LightBlue" Text="Escanear Menú" Command="{Binding ScannerMenuCommand}"/>
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Spacing="15"
+                    VerticalOptions="Center">
+                    <Button
+                        BackgroundColor="LightBlue"
+                        Command="{Binding GoLoginCommand}"
+                        CornerRadius="12"
+                        Text="Iniciar Sesion" />
+                    <Button
+                        BackgroundColor="LightBlue"
+                        Command="{Binding ScannerMenuCommand}"
+                        CornerRadius="12"
+                        Text="Escanear Menú" />
                 </StackLayout>
             </StackLayout>
         </Grid>

@@ -47,6 +47,7 @@ namespace presentacion.ViewModels
             if (!navigation.Success)
                 await PageDialog.AlertAsync(navigation.Exception.Message, "Escanear Codigo", "Aceptar");
             this.IsBusy = false;
+            return;
         }
         #endregion Commands
 

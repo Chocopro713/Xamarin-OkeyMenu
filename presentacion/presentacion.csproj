@@ -36,11 +36,13 @@
     <None Remove="Resources\Images\ic_facebook.png" />
     <None Remove="Resources\Images\ic_google.png" />
     <None Remove="Resources\Images\ic_instagram.png" />
+    <None Remove="Resources\Images\chef.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\restauranteLogin.jpeg" />
     <EmbeddedResource Include="Resources\Images\ic_facebook.png" />
     <EmbeddedResource Include="Resources\Images\ic_google.png" />
     <EmbeddedResource Include="Resources\Images\ic_instagram.png" />
+    <EmbeddedResource Include="Resources\Images\chef.png" />
   </ItemGroup>
 </Project>

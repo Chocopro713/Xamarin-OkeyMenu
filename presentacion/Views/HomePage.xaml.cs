@@ -10,6 +10,7 @@ namespace presentacion.Views
         public HomePage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

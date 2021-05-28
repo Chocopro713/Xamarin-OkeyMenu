@@ -9,7 +9,7 @@
     prism:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Content>
 
-        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <!--
                 VirbationOnDetected: Indicate the device will vibrate or not when detected barcode, default is True
                 DefaultTorchOn: Indicate the torch will on or not when the view appear, default is False
@@ -19,14 +19,28 @@
             -->
             <gv:CameraView
                 AutoStartScanning="True"
-                DefaultTorchOn="True"
+                DefaultTorchOn="False"
                 HorizontalOptions="FillAndExpand"
                 OnDetected="CameraView_OnDetected"
                 RequestedFPS="30"
                 ScanInterval="500"
                 VerticalOptions="FillAndExpand"
                 VibrationOnDetected="True" />
-        </ScrollView>
+            <Grid
+                HorizontalOptions="FillAndExpand"
+                RowDefinitions="*,2*,*"
+                VerticalOptions="FillAndExpand">
+                <BoxView
+                    Grid.Row="0"
+                    BackgroundColor="Black"
+                    Opacity=".5" />
+                <BoxView Grid.Row="1" BackgroundColor="Transparent" />
+                <BoxView
+                    Grid.Row="2"
+                    BackgroundColor="Black"
+                    Opacity=".5" />
+            </Grid>
+        </Grid>
 
     </ContentPage.Content>
 </ContentPage>

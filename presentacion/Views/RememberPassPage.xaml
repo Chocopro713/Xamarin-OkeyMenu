@@ -32,9 +32,18 @@
 
             <BoxView BackgroundColor="Black" Opacity=".8" />
 
+            <ffimage:CachedImage
+                Margin="50"
+                BackgroundColor="Transparent"
+                HeightRequest="150"
+                Source="{local:ImageResource presentacion.Resources.Images.chef.png}"
+                VerticalOptions="Start"
+                WidthRequest="150" />
+
             <Button
                 Margin="20"
                 BackgroundColor="{StaticResource PrimaryColor}"
+                Command="{Binding BackCommand}"
                 CornerRadius="24"
                 FontFamily="{StaticResource LineAwesome}"
                 FontSize="20"
@@ -43,8 +52,7 @@
                 Text="{x:Static local:LineAwesomeFont.AngleLeft}"
                 TextColor="{StaticResource WhiteDarkColor}"
                 VerticalOptions="Start"
-                WidthRequest="45"
-                Command="{Binding BackCommand}"/>
+                WidthRequest="45" />
 
             <Grid
                 Margin="20,30"
@@ -52,7 +60,7 @@
                 RowSpacing="10"
                 VerticalOptions="Center">
                 <!--  USUARIO  -->
-                <Grid Grid.Row="0" Margin="0, 15">
+                <Grid Grid.Row="0" Margin="0,15">
                     <control:StandardEntry
                         Placeholder="Correo Electrónico"
                         Style="{StaticResource StyleEntry}"
