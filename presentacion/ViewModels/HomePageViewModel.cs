@@ -40,10 +40,12 @@ namespace presentacion.ViewModels
         #region Methods
         private async void ShowPresentacion()
         {
+            /*
             await Task.Delay(500);
             var navegation = await this._navigationService.NavigateAsync("WelcomeBoardingPage", new NavigationParameters(), useModalNavigation: true, animated: true);
             if (!navegation.Success)
                 PageDialog.Alert("No fue posible ingresar a la ventana de bienvenida.", "Error", "Aceptar");
+            */
         }
         #endregion Methods
 

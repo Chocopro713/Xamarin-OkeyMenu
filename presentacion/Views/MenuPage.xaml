@@ -4,29 +4,117 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-    xmlns:local="clr-namespace:presentacion;assembly=presentacion">
+    xmlns:local="clr-namespace:presentacion;assembly=presentacion"
+    Title="Menu">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="10">
             <Label
-                Margin="10"
                 FontSize="30"
-                Text="{Binding NameRestaurant}"
+                Text="Restaurante Doña Clara"
                 TextColor="{StaticResource PrimaryColor}" />
-            <Label Text="Caldos" />
+            <Label FontSize="25" Text="Caldos" />
             <StackLayout Orientation="Horizontal">
                 <Frame>
                     <StackLayout>
                         <ffimage:CachedImage
-                            Margin="50"
                             BackgroundColor="Transparent"
-                            HeightRequest="150"
+                            HeightRequest="50"
                             Source="{local:ImageResource presentacion.Resources.Images.chef.png}"
                             VerticalOptions="Start"
-                            WidthRequest="150" />
-                        <Label Text="Pescado" />
+                            WidthRequest="50" />
+                        <Label Text="Pescado" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <ffimage:CachedImage
+                            BackgroundColor="Transparent"
+                            HeightRequest="50"
+                            Source="{local:ImageResource presentacion.Resources.Images.chef.png}"
+                            VerticalOptions="Start"
+                            WidthRequest="50" />
+                        <Label Text="Pollo" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <ffimage:CachedImage
+                            BackgroundColor="Transparent"
+                            HeightRequest="50"
+                            Source="{local:ImageResource presentacion.Resources.Images.chef.png}"
+                            VerticalOptions="Start"
+                            WidthRequest="50" />
+                        <Label Text="Hueso" TextColor="Black" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
+            <Label FontSize="25" Text="Proteína" />
+            <StackLayout Orientation="Horizontal">
+                <Frame>
+                    <StackLayout>
+                        <ffimage:CachedImage
+                            BackgroundColor="Transparent"
+                            HeightRequest="50"
+                            Source="{local:ImageResource presentacion.Resources.Images.chef.png}"
+                            VerticalOptions="Start"
+                            WidthRequest="50" />
+                        <Label Text="Pescado Seco" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <ffimage:CachedImage
+                            BackgroundColor="Transparent"
+                            HeightRequest="50"
+                            Source="{local:ImageResource presentacion.Resources.Images.chef.png}"
+                            VerticalOptions="Start"
+                            WidthRequest="50" />
+                        <Label Text="Pollo apanado" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <ffimage:CachedImage
+                            BackgroundColor="Transparent"
+                            HeightRequest="50"
+                            Source="{local:ImageResource presentacion.Resources.Images.chef.png}"
+                            VerticalOptions="Start"
+                            WidthRequest="50" />
+                        <Label Text="Carne" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Label FontSize="25" Text="Principio" />
+            <StackLayout Orientation="Horizontal">
+                <Frame>
+                    <StackLayout>
+                        <ffimage:CachedImage
+                            BackgroundColor="Transparent"
+                            HeightRequest="50"
+                            Source="{local:ImageResource presentacion.Resources.Images.chef.png}"
+                            VerticalOptions="Start"
+                            WidthRequest="50" />
+                        <Label Text="Frijoles" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <ffimage:CachedImage
+                            BackgroundColor="Transparent"
+                            HeightRequest="50"
+                            Source="{local:ImageResource presentacion.Resources.Images.chef.png}"
+                            VerticalOptions="Start"
+                            WidthRequest="50" />
+                        <Label Text="Garbanzo" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Button
+                Margin="20"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                CornerRadius="16"
+                Text="Confirmar Comida"
+                VerticalOptions="EndAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

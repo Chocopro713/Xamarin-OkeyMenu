@@ -32,7 +32,7 @@
                     <!--  StartPoint defaults to (0,0)  -->
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Offset="0.1" Color="Transparent" />
-                        <GradientStop Offset="1.0" Color="Green" />
+                        <GradientStop Offset="1.0" Color="{StaticResource PrimaryColor}" />
                     </LinearGradientBrush>
                 </Frame.Background>
             </Frame>
@@ -42,12 +42,12 @@
                     Spacing="15"
                     VerticalOptions="Center">
                     <Button
-                        BackgroundColor="LightBlue"
+                        BackgroundColor="{StaticResource accent}"
                         Command="{Binding GoLoginCommand}"
                         CornerRadius="12"
                         Text="Iniciar Sesion" />
                     <Button
-                        BackgroundColor="LightBlue"
+                        BackgroundColor="{StaticResource accent}"
                         Command="{Binding ScannerMenuCommand}"
                         CornerRadius="12"
                         Text="Escanear Menú" />

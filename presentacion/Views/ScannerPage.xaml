@@ -6,6 +6,7 @@
     xmlns:gv="clr-namespace:GoogleVisionBarCodeScanner;assembly=BarcodeScanner.XF"
     xmlns:local="clr-namespace:presentacion;assembly=presentacion"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="Escanea tu menú"
     prism:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Content>
 
